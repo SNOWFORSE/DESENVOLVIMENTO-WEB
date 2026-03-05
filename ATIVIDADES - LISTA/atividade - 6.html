@@ -1,60 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Destinos</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Destinos </title>
     <style>
-        /* Estilo geral da página */
+        /* No Style será definido todo o front-end do site */
         body {
-            background-color: #f0f8ff; /* Fundo azul claro */
-            margin: 40px;
+            background-color: #f0f8ff; /* Cor de fundo da página */
+            margin: 40px; /* Aqui mudamos a distância da margem da página */
         }
 
-        /* Título principal */
+        /* Estilização do título principal */
         h1 {
-            color: #7f077f; /* Cor roxa */
-            border-bottom: 2px dashed #7f077f; /* Linha pontilhada roxa */
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+            color: #000000; /* Preto para o texto */
+            border-bottom: 2px dashed #7f077f; /* Linha tracejada roxa abaixo do título */
+            padding-bottom: 10px; /* Define a distância a linha tracejada e o titulo */
+            font-size: 23px; /* Aqui aumentamos e diminuimos o tamanho da fonte */
+        }
+        
+        /* Dupliquei a h1 com a tag "::first-letter" para aumentar apeas a primeira letra da frase no título*/
+        h1::first-letter{
+            font-size: 32px; /* Aqui aumentamos e diminuimos o tamanho da fonte */
         }
 
-        /* Caixa principal */
+        /* Aqui editamos tudo dentro da caixa em branco que envolve a lista */
         .caixa {
-            border: 1px solid #918f8f; /* Borda cinza */
-            width: 320px;
-            padding: 20px;
-            border-radius: 6px;
+            background-color: white; /* Define a cor do fundo da caixa*/
+            border: 1px solid #918f8f; /* Borda cinza fina */
+            border-radius: 8px; /* Cantos arredondados do quadro */
+            padding: 15px; /* Aqui define o espaço dentro da caixa*/
+            width: 210px; /* Ajusta a largura ao conteúdo */
+        }
+
+        /* Estilo dos nomes das cidades (os títulos em roxo) */
+        h2 {
+            color: #7f077f; /* Cor roxa pedida */
+            font-size: 20px; /* Define o tamanho da fonte */
+            margin-bottom: 1px; /* aqui serve para mudar a distância do ttulo para o texto */
+            margin-top: 1px; /* Aqui serve mudar a distância do texto e a borda */
+            display: inline-block; /* Faz o fundo amarelo cobrir apenas o texto */
+            background-color: #fbfb2c78; /* Amarelo translúcido (efeito marca-texto) */
         }
 
         /* Destaque apenas no texto */
         .destaque {
             background-color: #fbfb2c78; /* Amarelo transparente */
             color: #7f077f; /* Texto roxo */
-            font-weight: bold;
+            font-weight: bold; /* Deixa a fonte em negrito */
+            font-size: 20px; /* Define o tamanho da fonte */
             display: inline; /* Fundo só no tamanho do texto */
         }
 
-        /* Lista padrão */
+        /* Estilização das listas (ol = lista ordenada) */
         ol {
-            margin-top: 5px;
-            margin-bottom: 15px;
+            margin-top: 5px; /* Aqui serve mudar a distância do texto e a borda */
+            color: #333; /* Muda a cor da letra*/
         }
 
-        /* Lista com letras */
-        .letras {
-            list-style-type: lower-alpha;
+        /* Itens da lista */
+        li {
+            margin-bottom: 5px; /* Muda a distância entre as linhas da lista */
+            font-size: 18px; /* Muda o tamanho da fonte na lista*/
+        }
+
+        /* Estilo específico para a sub-lista (a e b) do Rio de Janeiro */
+        .sub-lista {
+            list-style-type: lower-alpha; /* Define letras minúsculas ex:(a, b, c...) */
+            /* lower-alpha transforma 1, 2 em a, b */
         }
     </style>
 </head>
-
 <body>
 
-    <h1>Melhores destinos turísticos</h1>
+    <h1>MELHORES DESTINOS TURÍSTICOS</h1>
 
     <div class="caixa">
-
-        <p><span class="destaque">Foz do Iguaçu</span></p>
+        
+        <h2>Foz do Iguaçu</h2>
         <ol>
             <li>Cataratas do Iguaçu</li>
             <li>Itaipu</li>
@@ -63,13 +86,13 @@
 
         <p><span class="destaque">Salvador</span></p>
 
-        <p><span class="destaque">Rio de Janeiro</span></p>
-        <ol class="letras">
+        <h2>Rio de Janeiro</h2>
+        <ol class="sub-lista">
             <li>Cristo Redentor</li>
             <li>Pão de Açúcar</li>
         </ol>
 
-        <p><span class="destaque">Maranhão</span></p>
+        <h2>Maranhão</h2>
 
     </div>
 
