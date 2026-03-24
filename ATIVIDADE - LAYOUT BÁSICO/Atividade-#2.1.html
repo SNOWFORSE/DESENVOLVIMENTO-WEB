@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout com Divs - Atividade #2</title>
+    
+    <style>
+        /* CONFIGURAÇÕES GERAIS DO FUNDO */
+        body {
+            background-color: #424242; /* Cor cinza escuro que fica por fora do site */
+            margin: 0;                 /* Zera a margem padrão do navegador */
+            padding: 20px;             /* Espaço para o site não colar na borda da janela */
+            font-family: 'Times New Roman', Times, serif; /* Fonte com serifa igual da imagem */
+        }
+
+        .layout-principal {
+            width: 900px;              /* Largura fixa conforme o modelo */
+            margin: 0 auto;            /* Centraliza a div horizontalmente */
+            background-color: #f4f4f4; /* Cor de fundo clara do centro do site */
+        }
+
+        .topo {
+            background-color: #32384c; /* Azul marinho escuro */
+            color: #eaeaea;            /* Cor do texto clara */
+            text-align: center;        /* Centraliza o texto */
+            padding: 30px;             /* Espaço interno para dar altura ao bloco */
+        }
+
+        .topo h1 {
+            margin: 0;                 /* Remove margens extras do título */
+            font-weight: bold;         /* Garante que o título esteja em negrito */
+        }
+
+        .menu {
+            background-color: #2f7898; /* Azul petróleo/ciano */
+            padding: 10px;             /* Espaçamento interno do menu */
+            text-align: center;        /* Centraliza os links do menu */
+        }
+
+        .menu a {
+            color: #9aff98;            /* Verde limão neon conforme a cor fornecida */
+            text-decoration: underline;/* Mantém o sublinhado original dos links */
+            margin: 0 10px;            /* Espaço entre um link e outro */
+            font-weight: bold;         /* Deixa os links em negrito */
+            text-transform: uppercase; /* Deixa as letras todas em MAIÚSCULO */
+        }
+
+        .conteudo {
+            padding: 40px;             /* Espaçamento interno para o texto não grudar nas bordas */
+            color: #32384c;            /* Cor do texto (mesmo azul do topo) */
+        }
+
+        .titulo-secao {
+            color: #4b4bb7;            /* Cor azul/roxa dos títulos */
+            font-size: 24px;           /* Tamanho da fonte maior que o texto comum */
+            font-weight: bold;         /* Deixa os títulos das seções em negrito */
+            border-bottom: 1px solid #4b4bb7; /* Linha horizontal colorida abaixo do título */
+            margin-bottom: 10px;       /* Espaço entre o título e o texto abaixo */
+            padding-bottom: 5px;       /* Espaço entre o texto e a linha de baixo */
+        }
+
+        .texto-paragrafo {
+            text-align: justify;       /* Alinha o texto dos dois lados (margens retas) */
+            line-height: 1.4;          /* Define o espaçamento entre as linhas */
+            margin-bottom: 30px;       /* Espaço entre o fim de um parágrafo e o próximo título */
+        }
+
+        .rodape {
+            background-color: #cfcfcf; /* Cor cinza claro do rodapé */
+            color: #424242;            /* Texto em cinza escuro */
+            text-align: center;        /* Texto centralizado */
+            padding: 15px;             /* Espaçamento interno do rodapé */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-principal">
+        
+        <div class="topo">
+            <h1>Desenvolvimento Web I</h1>
+        </div>
+
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">IFPR</a>
+            <a href="#">Tads</a>
+        </div>
+
+        <div class="conteudo">
+            
+            <div class="titulo-secao">Introdução</div>
+            <div class="texto-paragrafo">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+
+            <div class="titulo-secao">Conteúdo</div>
+            <div class="texto-paragrafo">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+
+        </div>
+
+        <div class="rodape">
+            Desenvolvido por empresa web
+        </div>
+
+    </div>
+
+</body>
+</html>

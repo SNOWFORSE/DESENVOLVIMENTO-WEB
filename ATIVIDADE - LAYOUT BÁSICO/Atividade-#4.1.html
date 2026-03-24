@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> <title>Cursos Superiores IF - Atividade #4</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS DO NAVEGADOR */
+        body {
+            background-color: #ccc; /* Cor de fundo cinza ao redor do site */
+            margin: 0; /* Remove margens padrão do navegador */
+            padding: 0; /* Remove preenchimento padrão do navegador */
+            font-family: Arial, sans-serif; /* Define a fonte padrão sem serifa */
+        }
+
+        .container {
+            width: 900px; /* Largura fixa do layout */
+            margin: 20px auto; /* Centraliza na tela e dá espaço no topo/base */
+            background-color: #fbfbfb; /* Cor de fundo branca do corpo */
+            min-height: 100vh; /* Garante que o fundo cubra a altura da tela */
+        }
+
+        .cabecalho {
+            background-color: #9af6b1; /* Cor verde claro do topo */
+            padding: 20px; /* Espaçamento interno do cabeçalho */
+            text-align: center; /* Centraliza título e links */
+        }
+
+        .cabecalho h1 {
+            margin: 0; /* Remove margem do h1 */
+            font-size: 24px; /* Tamanho da fonte do título */
+            color: #000; /* Cor preta para o título principal */
+            font-weight: bold; /* Deixa o título em negrito */
+        }
+
+        .mini-menu {
+            margin-top: 15px; /* Espaço entre o título e os links */
+            font-size: 13px;  /* Tamanho da letra dos links */
+        }
+
+        .mini-menu a {
+            color: navy;
+            text-decoration: none; /* Remove o sublinhado padrão de links */
+            padding: 2px 8px; /* Espaço interno para criar o formato de botão */
+            border: 1px solid #000; /* Borda preta fina ao redor dos links */
+            background-color: #9af6b1; /* Fundo verde igual ao cabeçalho (ou levemente mais escuro) */
+            margin: 0 2px; /* Pequeno espaço entre as caixinhas */
+            display: inline-block; /* Permite aplicar bordas e preenchimento corretamente */
+        }
+
+        .link-verde { color: #037253; } /* Cor verde escuro para os links */
+        .link-azul  { color: navy; } /* Cor azul marinho para o link central */
+
+        .conteudo {
+            padding: 40px; /* Espaço interno para o texto não tocar as bordas */
+            color: #4b4b4b; /* Cor cinza escuro para os textos */
+        }
+
+        .titulo-tads {
+            color: #037253; /* Verde oficial do IF */
+            font-size: 28px; /* Tamanho grande para o título da página */
+            font-weight: bold; /* Título em negrito */
+            margin-bottom: 20px; /* Espaço antes do parágrafo */
+        }
+
+        .titulo-sub {
+            font-size: 18px; /* Tamanho médio para subtítulos */
+            font-weight: bold; /* Negrito para os subtítulos */
+            margin: 20px 0 10px 0; /* Espaçamento em cima e embaixo */
+        }
+
+        .texto-descricao {
+            text-align: justify; /* Texto alinhado em ambos os lados */
+            line-height: 1.4; /* Espaçamento entre linhas para leitura */
+            text-indent: 40px; /* Cria o recuo (tabulação) na primeira linha */
+            margin-bottom: 25px; /* Espaço antes da próxima seção */
+        }
+
+        .lista-aptidoes {
+            margin-bottom: 30px; /* Espaço após a lista */
+            padding-left: 30px; /* Recuo para as bolinhas da lista */
+        }
+
+        .item-lista {
+            margin-bottom: 5px; /* Espaço entre um item e outro */
+            display: list-item; /* Define como item de lista */
+            list-style-type: disc; /* Estilo de marcador (bolinha preta) */
+            font-size: 14px; /* Tamanho da letra da lista */
+        }
+
+        .container-disciplinas {
+            display: flex; /* Coloca as duas colunas lado a lado */
+            justify-content: flex-start; /* Alinha as colunas à esquerda */
+            gap: 50px; /* Espaço entre a coluna do 1º e 2º semestre */
+        }
+
+        .semestre-label {
+            font-weight: bold; /* Deixa "1º semestre" em negrito */
+            margin-bottom: 10px; /* Espaço antes das caixinhas */
+            font-size: 15px; /* Tamanho da fonte do rótulo */
+        }
+
+        .disciplina-box {
+            border: 1px solid #708090; /* Borda cinza azulada fina */
+            padding: 4px 10px; /* Espaçamento interno pequeno (altura e largura) */
+            margin-bottom: 8px; /* Espaço entre uma caixa e outra */
+            font-size: 13px; /* Tamanho da letra dentro da caixa */
+            background-color: #fff; /* Fundo branco das caixas */
+            width: 180px; /* Largura fixa reduzida para as caixas */
+            display: block; /* Faz cada caixa ocupar uma linha na coluna */
+        }
+
+        .destaque-verde {
+            background-color: #9af6b1; /* Fundo verde claro para destaque */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="cabecalho">
+            <h1>Conheça os cursos superiores IF</h1>
+            <div class="mini-menu">
+                <a href="#" class="link-verde">curso</a> 
+                <a href="#" class="link-azul">disciplinas</a> 
+                <a href="#" class="link-verde">ifpr</a>
+            </div>
+        </div>
+
+        <div class="conteudo">
+            
+            <div class="titulo-tads">TADS</div>
+
+            <div class="texto-descricao">
+                A modalidade tecnólogo é um curso superior, reconhecido pelo MEC que habilita o profissional a atuar em diversos nichos de mercado. As disciplinas do curso fornecem o embasamento para que o aluno adquira conhecimento técnico e desenvolva autonomia para atuar nos diversos setores da área de tecnologia da informação.
+            </div>
+
+            <div class="titulo-sub">Aptidões da formação</div>
+            
+            <div class="lista-aptidoes">
+                <div class="item-lista">Analisar, projetar, documentar, especificar, testar, implantar e manter sistemas computacionais de informação;</div>
+                <div class="item-lista">Desenvolver sistemas Web, dispositivos móveis, ferramentas computacionais e metodologias de projetos na produção de sistemas;</div>
+                <div class="item-lista">Empreender seu próprio negócio;</div>
+                <div class="item-lista">Atuar como analista/programador de software;</div>
+                <div class="item-lista">Atuar na área acadêmica.</div>
+            </div>
+
+            <div class="titulo-sub">Disciplinas do curso</div>
+
+            <div class="container-disciplinas">
+                
+                <div class="coluna">
+                    <div class="semestre-label">1º semestre</div>
+                    <div class="disciplina-box">Lógica de programação</div>
+                    <div class="disciplina-box">Introdução a computação</div>
+                    <div class="disciplina-box destaque-verde">Desenvolvimento Web I</div>
+                    <div class="disciplina-box">Matemática Aplicada</div>
+                    <div class="disciplina-box">Inglês técnico</div>
+                </div>
+
+                <div class="coluna">
+                    <div class="semestre-label">2º semestre</div>
+                    <div class="disciplina-box">Banco de Dados I</div>
+                    <div class="disciplina-box">Estrutura de Dados</div>
+                    <div class="disciplina-box">Sistemas Operacionais</div>
+                    <div class="disciplina-box">Orientação a Objetos</div>
+                    <div class="disciplina-box destaque-verde">Desenvolvimento Web II</div>
+                </div>
+
+            </div> </div> </div> </body>
+</html>

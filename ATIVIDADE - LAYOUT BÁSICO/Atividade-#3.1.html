@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> <title>Layout Dark - Atividade #3</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS DO DOCUMENTO */
+        body {
+            background-color: #424242; /* Cor de fundo cinza escuro de toda a página */
+            margin: 0;                 /* Remove as margens padrão que o navegador cria */
+            padding: 20px;             /* Cria um respiro (espaço) entre a borda da janela e o conteúdo */
+            font-family: Arial, Helvetica, sans-serif; /* Define uma fonte moderna e sem serifa */
+        }
+
+        .layout-principal {
+            width: 900px;              /* Define uma largura fixa para o site */
+            margin: 0 auto;            /* Centraliza a caixa no meio da tela (auto nas laterais) */
+            background-color: #424242; /* Mantém a cor de fundo igual ao body para uniformidade */
+            color: #e6e6e6;            /* Define a cor padrão clara para todos os textos internos */
+        }
+
+        .topo {
+            text-align: center;        /* Centraliza o título horizontalmente */
+            padding: 20px;             /* Dá altura ao topo com espaço interno */
+        }
+
+        .topo h1 {
+            color: #f4f4f4;            /* Cor quase branca para dar destaque no fundo escuro */
+            font-weight: bold;         /* Deixa a letra mais grossa (negrito) */
+            font-size: 32px;           /* Define o tamanho da letra do título */
+        }
+
+        .menu {
+            text-align: center;        /* Centraliza os botões no meio da div */
+            padding: 10px;             /* Espaçamento interno */
+            margin-bottom: 20px;       /* Cria uma distância entre o menu e a caixa de conteúdo */
+        }
+
+        .menu a {
+            display: inline-block;     /* Permite aplicar padding e altura aos links */
+            padding: 8px 20px;         /* Espaçamento interno: 8px em cima/baixo, 20px nas laterais */
+            margin: 0 5px;             /* Cria um espaço entre um botão e outro */
+            text-decoration: none;     /* Remove aquele sublinhado padrão de links azulados */
+            color: #eaeaea;            /* Cor do texto dentro do botão */
+            background-color: #555;    /* Cor de fundo cinza para parecer um botão desativado */
+            border-radius: 4px;        /* Arredonda levemente os cantinhos do botão */
+            font-weight: bold;         /* Deixa o texto do botão em negrito */
+            font-size: 14px;           /* Tamanho da letra dos links */
+        }
+
+        .menu a.ativo {
+            background-color: #1b6049; /* Altera o fundo para verde apenas no link com classe 'ativo' */
+        }
+
+        .conteudo {
+            background-color: #292f2f; /* Cor cinza "petróleo" bem escura para o fundo da caixa */
+            padding: 30px;             /* Espaçamento para o texto não encostar nas bordas da caixa */
+            border: 1px solid #000;    /* Desenha uma linha preta fina em volta da div */
+            margin-bottom: 20px;       /* Empurra o rodapé para baixo, criando um espaço */
+            border-radius: 8px;        /* Arredonda os cantos da caixa de conteúdo */
+        }
+
+        .titulo-secao {
+            color: #ffe771;            /* Cor amarela/dourada para os títulos internos */
+            font-size: 24px;           /* Tamanho médio para títulos de seção */
+            font-weight: bold;         /* Garante que o título se destaque em negrito */
+            border-bottom: 1px solid #ffe771; /* Cria uma linha decorativa amarela abaixo do texto */
+            padding-bottom: 10px;      /* Espaço entre o texto e a linha amarela */
+            margin-bottom: 15px;       /* Espaço entre a linha amarela e o parágrafo abaixo */
+        }
+
+        .texto-paragrafo {
+            text-align: justify;       /* Distribui o texto para ficar reto dos dois lados */
+            line-height: 1.6;          /* Aumenta o espaço entre as linhas para facilitar a leitura */
+            margin-bottom: 30px;       /* Cria espaço entre o fim de um parágrafo e o próximo título */
+            color: #e6e6e6;            /* Cor cinza clara para o texto corrido */
+        }
+
+        .rodape {
+            background-color: #292f2f; /* Fundo igual ao da caixa de conteúdo */
+            color: #e6e6e6;            /* Cor da fonte clara */
+            text-align: center;        /* Coloca o texto centralizado na barra */
+            padding: 20px;             /* Dá altura e conforto visual ao rodapé */
+            border: 1px solid #000;    /* Borda preta igual à do conteúdo */
+            border-radius: 8px;        /* Arredonda os cantos da barra do rodapé */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-principal">
+        
+        <div class="topo">
+            <h1>Desenvolvimento Web I</h1>
+        </div>
+
+        <div class="menu">
+            <a href="#" class="ativo">HOME</a> <a href="#">IFPR</a>
+            <a href="#">TADS</a>
+        </div>
+
+        <div class="conteudo">
+            
+            <div class="titulo-secao">Introdução</div>
+            <div class="texto-paragrafo">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+
+            <div class="titulo-secao">Conteúdo</div>
+            <div class="texto-paragrafo">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+
+        </div> <div class="rodape">
+            Desenvolvido por empresa web
+        </div>
+
+    </div> </body>
+</html>
