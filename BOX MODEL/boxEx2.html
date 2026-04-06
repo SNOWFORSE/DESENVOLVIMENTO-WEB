@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Grade de Quadrados</title>
+
+    <style>
+        .container {
+            display: flex; /* Também uma flexbox  para organizar seus proprios itens internos (evita aquebra de linha quando o site diminui o zoom)*/
+            flex-wrap: wrap; /* Permite que os itens pulem para a  próxima linha */
+            width: 480px; /* Largura fixa que comporta exatamente 3 quadrados (160px cada, incluindo margens) */
+        }
+
+        .quadrado {
+            width: 150px; /* Largura do bloco */
+            height: 150px; /* Altura do bloco */
+            border: 1px solid #5a5a5a; /* Borda cinza para definir o contorno */
+            box-sizing: border-box; /* Garante que a borda não aumente o tamanho final de 150px */
+            margin: 5px; /* Espaçamento entre os elementos para eles não ficarem grudados */
+        }
+        .circulo { border-radius: 50%; } /* Deixa o quadrado perfeitamente redondo */
+
+        .amarelo { background-color: #ffff6b; }
+
+        .verde-claro { background-color: #adfbad; }
+
+        .laranja { background-color: #ffc1a9; }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="quadrado circulo amarelo"></div> 
+        <div class="quadrado"></div> 
+        <div class="quadrado verde-claro"></div>
+
+        <div class="quadrado laranja"></div>
+        <div class="quadrado circulo verde-claro"></div>
+        <div class="quadrado laranja"></div>
+
+        <div class="quadrado verde-claro"></div>
+        <div class="quadrado laranja"></div>
+        <div class="quadrado circulo amarelo"></div>
+    </div>
+
+</body>
+</html>
