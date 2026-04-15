@@ -8,38 +8,66 @@
 
 <style>
 
-    .cubo{
-        border: 1px solid black;
-        
+     .container {
+        font-family: Arial, sans-serif; /* Define a fonte do texto para Arial ou qualquer sem-serifa */
+        width: fit-content; /* Ajusta a largura do container apenas ao tamanho do seu conteúdo interno */
     }
 
+    .titulo {
+        font-weight: bold; /* Deixa o texto do título em negrito */
+        font-size: 1.1em; /* Define o tamanho da fonte para 10% maior que o padrão do pai */
+        margin-bottom: 15px; /* Cria um espaçamento de 15px abaixo do título */
+        display: block; /* Faz o elemento se comportar como um bloco, ocupando toda a largura disponível */
+    }
+
+    table {
+        border-collapse: collapse; /* Une as bordas das células para que não fiquem com espaços entre elas */
+    }
+
+    .cubo {
+        width: 22px; /* Define a largura fixa do quadradinho em 22 pixels */
+        height: 22px; /* Define a altura fixa do quadradinho em 22 pixels */
+        border: 1px solid black; /* Aplica uma borda fina de 1 pixel na cor preta */
+    }
+
+    .c1 { background-color: #8DFF7F; } /* Define a cor de fundo como um verde limão claro */
+    .c2 { background-color: #63C365; } /* Define a cor de fundo como um verde médio */
+    .c3 { background-color: #46816E; } /* Define a cor de fundo como um verde azulado escuro */
+    .c4 { background-color: #274060; } /* Define a cor de fundo como um azul marinho acinzentado */
+    .c5 { background-color: #00004B; } /* Define a cor de fundo como um azul marinho muito escuro */
+
+    td {
+        padding: 2px 5px; /* Aplica 2px de espaço em cima/baixo e 5px nas laterais internas */
+        vertical-align: middle; /* Alinha o conteúdo da célula (texto e cubos) verticalmente ao centro */
+    }
 </style>
 
 <body>
-    <table>
-        <tr>
-            <th>Mapa mundial mostrando os censos mais recentes dos países a partir de 2014:</th>
-        </tr>
-        <tr>
-            <td class="cubo"></td>
-            <td>2005 ou depois</td>
-        </tr>
-        <tr>
-            <td class="cubo"></td>
-            <td>2000 - 2004</td>
-        </tr>
-        <tr>
-            <td class="cubo"></td>
-            <td>1995 - 1999</td>
-        </tr>
-        <tr>
-            <td class="cubo"></td>
-            <td>1990 - 1994</td>
-        </tr>
-        <tr>
-            <td class="cubo"></td>
-            <td>1970 - 1989</td>
-        </tr>
-    </table>
+    <div class="container">
+        <span class="titulo">Mapa mundial mostrando os censos mais recentes dos países a partir de 2014:</span>
+
+        <table>
+            <tr>
+                <td class="cubo c1"></td>
+                <td>2005 ou depois</td>
+            </tr>
+            <tr>
+                <td class="cubo c2"></td>
+                <td>2000 - 2004</td>
+            </tr>
+            <tr>
+                <td class="cubo c3"></td>
+                <td>1995 - 1999</td>
+            </tr>
+            <tr>
+                <td class="cubo c4"></td>
+                <td>1990 - 1994</td>
+            </tr>
+            <tr>
+                <td class="cubo c5"></td>
+                <td>1970 - 1989</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
