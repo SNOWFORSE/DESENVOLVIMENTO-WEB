@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 - Tabela de Jogos com Grid</title>
+    <style> 
+
+        .grid-container {
+            display: grid; /* Ativa o modo de layout em grade (grid) */
+            /* grid-template-columns: Define a largura das 5 colunas.
+            2fr: Coluna larga para o nome do time.
+            1fr: Coluna para o número do placar.
+            0.5fr: Coluna estreita apenas para o 'x'. */
+            grid-template-columns: 2fr 1fr 0.5fr 1fr 2fr;
+            
+            width: 500px; /* Largura fixa da tabela */
+            border: 2px solid #000; /* Borda externa preta e grossa */
+            font-family: "Times New Roman", Times, serif; /* Fonte clássica com serifa */
+            text-align: center; /* Centraliza o texto de todas as células por padrão */
+            align-items: center; /* Centraliza verticalmente o conteúdo de cada célula */
+        }
+
+        .header {
+            /* grid-column: span 5: Faz essa célula "atravessar" as 5 colunas 
+            criadas no container, ocupando a linha inteira. */
+            grid-column: span 5; 
+            background-color: #98FF98; /* Cor de fundo verde claro */
+            font-size: 2rem; /* Tamanho da fonte grande */
+            font-weight: bold; /* Deixa o texto em negrito */
+            padding: 10px; /* Espaço entre o texto e a borda da faixa */
+            border-bottom: 1px solid #000; /* Linha preta fina separando o título dos jogos */
+        }
+
+        .cell {
+            padding: 15px 5px; /* Espaçamento interno (15px cima/baixo, 5px lados) */
+            font-size: 1.5rem; /* Tamanho da fonte para os nomes e placares */
+        }
+
+        .vs {
+            color: #ccc; /* Cor cinza clara para o 'x' não chamar mais atenção que os números */
+            font-size: 1.2rem; /* Tamanho um pouco menor que o dos placares */
+        }
+
+        .footer {
+            grid-column: span 5; /* Também ocupa todas as 5 colunas */
+            background-color: #000080; /* Cor azul marinho */
+            color: white; /* Texto na cor branca para dar contraste */
+            display: flex; /* Transforma o rodapé em um container flexível */
+            justify-content: space-around; /* Empurra "Série A" para um lado e "2014" para o outro */
+            padding: 5px;
+            font-size: 1rem;
+            font-family: Arial, sans-serif; /* Muda a fonte para sem serifa, como na imagem */
+        }
+        
+        .team-left { 
+            text-align: right; /* Alinha o nome do time para a direita */
+            padding-right: 20px; /* Dá uma folga antes do placar */
+        }
+
+        .team-right { 
+            text-align: left; /* Alinha o nome do time para a esquerda */
+            padding-left: 20px; /* Dá uma folga depois do placar */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="header">15ª Rodada</div>
+
+        <div class="cell team-left">Goiás</div>
+        <div class="cell">0</div>
+        <div class="vs">x</div>
+        <div class="cell">1</div>
+        <div class="cell team-right">Inter</div>
+
+        <div class="cell team-left">Palmeiras</div>
+        <div class="cell">1</div>
+        <div class="vs">x</div>
+        <div class="cell">0</div>
+        <div class="cell team-right">São Paulo</div>
+
+        <div class="cell team-left">Cruzeiro</div>
+        <div class="cell">3</div>
+        <div class="vs">x</div>
+        <div class="cell">0</div>
+        <div class="cell team-right">Santos</div>
+
+        <div class="cell team-left">Botafogo</div>
+        <div class="cell">2</div>
+        <div class="vs">x</div>
+        <div class="cell">0</div>
+        <div class="cell team-right">Fluminense</div>
+
+        <div class="footer">
+            <span>Série A</span>
+            <span>2014</span>
+        </div>
+    </div>
+
+</body>
+</html>

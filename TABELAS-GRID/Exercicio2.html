@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Tabela HTML</title>
+    <style>
+
+        table {
+            /* border-collapse: collapse: É o comando que "gruda" as bordas. 
+            Sem ele, cada célula teria sua própria borda, criando um efeito de borda dupla. */
+            border-collapse: collapse; 
+            width: 350px; /* Define a largura total da tabela em pixels */
+            font-family: Arial, sans-serif; /* Define a fonte padrão (sem serifa) para os dados */
+            border: 2px solid #000; /* Cria uma borda externa preta mais grossa (2px) */
+        }
+
+        th, td {
+            border: 1px solid #000; /* Define uma linha preta fina (1px) para as divisórias internas */
+            padding: 10px; /* Cria um respiro interno para o texto não encostar nas bordas */
+            text-align: left; /* Alinha o texto à esquerda por padrão dentro da célula */
+            font-size: 1.1rem; /* Define o tamanho da fonte (relativo ao tamanho padrão) */
+        }
+
+        .title-row {
+            background-color: rgb(243, 213, 124); /* Aplica a cor amarela usando o sistema RGB */
+            text-align: center; /* Centraliza o texto especificamente nesta célula */
+            font-family: "Times New Roman", Times, serif; /* Muda para uma fonte com serifa (estilo clássico) */
+            font-size: 1.5rem; /* Aumenta o tamanho da fonte para dar destaque de título */
+        }
+
+        .header-row {
+            background-color: #97CBFA; /* Aplica a cor azul clara usando o código Hexadecimal */
+            font-family: "Times New Roman", Times, serif; /* Mantém o padrão com serifa da imagem */
+            font-weight: bold; /* Deixa o texto em negrito */
+        }
+
+        .footer-row {
+            background-color: #E6e6e6; /* Aplica a cor cinza clara */
+            font-size: 0.8rem; /* Diminui o tamanho da fonte (letras menores para notas de rodapé) */
+            text-align: center; /* Centraliza o texto "fonte: agencia Reuters" */
+        }
+
+        .col-units {
+            width: 50%; /* Força a coluna a ocupar exatamente metade da largura da tabela */
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th colspan="2" class="title-row">Vendas do 1º Semestre</th>
+        </tr>
+        
+        <tr class="header-row">
+            <td>Modelo</td>
+            <td>Unidades</td>
+        </tr>
+
+        <tr>
+            <td>Palio</td>
+            <td>585.240</td>
+        </tr>
+
+        <tr>
+            <td>Gol</td>
+            <td>529.894</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="footer-row">fonte: agencia Reuters</td>
+        </tr>
+    </table>
+
+</body>
+</html>

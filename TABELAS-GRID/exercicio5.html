@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5 - Grid com Unidades Relativas</title>
+    <style>
+        
+        .container {
+            display: grid; /* Transforma o elemento em um container Grid */
+            grid-template-columns: 1fr 1fr; /* grid-template-columns: Divide o espaço em colunas. 
+            O '1fr 1fr' significa que criamos 2 colunas que dividem o espaço 
+            disponível igualmente (cada uma tem 1 fração do total). */
+            width: 90%; /* A largura ocupará 90% da largura da tela */
+            max-width: 800px; /* Impede que a tabela fique maior que 800px em telas grandes */
+            margin: 20px auto; /* 20px de espaço em cima/baixo e 'auto' centraliza o bloco na tela */
+            border: 1px solid #CCC; /* Borda sólida de 1 pixel na cor cinza clara */
+            gap: 10px; /* Cria um espaçamento de 10px entre as linhas e colunas do grid */
+            padding: 10px; /* Espaçamento interno entre a borda e o conteúdo */
+        }
+
+        .header-title {
+            grid-column: span 2; /* grid-column: span 2: Faz com que este elemento "estique" e ocupe 
+            o espaço das 2 colunas do grid de uma vez só. */
+            background-color: #5EFB6E; /* Define a cor de fundo verde */
+            text-align: center; /* Centraliza o texto horizontalmente */
+            font-family: "Times New Roman", Times, serif; /* Define o tipo de letra */
+            font-size: 1.8rem; /* Define o tamanho da fonte */
+            font-weight: bold; /* Deixa o texto em negrito */
+            padding: 10px; /* Espaçamento interno para o título não encostar na borda */
+            border: 1px solid #CCC; /* Borda fina cinza ao redor do título */
+        }
+
+        .image-box {
+            border: 1px solid #CCC; /* Cria a moldura cinza para a imagem */
+            padding: 5px; /* Pequeno espaço entre a moldura e a foto */
+            display: flex; /* Ativa o Flexbox para facilitar o alinhamento interno */
+            justify-content: center; /* Garante que a imagem fique centralizada na moldura */
+        }
+
+        img {
+            width: 100%; /* A imagem sempre ocupará 100% da largura da moldura (.image-box) */
+            height: auto; /* Ajusta a altura proporcionalmente para não achatar a foto */
+            display: block; /* Remove espaços vazios indesejados abaixo da imagem */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-title">Casas no centro</div>
+        <div class="image-box">
+            <img src="imagemcasa01.webp" alt="Casa no centro 1">
+        </div>
+        <div class="image-box">
+            <img src="imagemcasa02.jpg" alt="Casa no centro 2">
+        </div>
+
+        <div class="header-title">Casas na vila A</div>
+        <div class="image-box">
+            <img src="imagemcasa03.webp" alt="Casa na vila A 1">
+        </div>
+        <div class="image-box">
+            <img src="imagemcasa04.jpg" alt="Casa na vila A 2">
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 - Tabela com Imagens</title>
+    <style>
+
+        table {
+            /* border-collapse: collapse: É o comando mais importante para tabelas. 
+            Ele "funde" as bordas das células vizinhas para que não fique aquele 
+            espaço vazio (borda dupla) entre elas. */
+            border-collapse: collapse; 
+            width: 500px; /* Define uma largura fixa para a tabela */
+            font-family: Arial, sans-serif; /* Define a fonte padrão para o corpo da tabela */
+            border: 1px solid #000; /* Cria uma borda preta fina ao redor de toda a tabela */
+        }
+
+        thead {
+            background-color: #6E6E6E; /* Cor de fundo cinza escuro conforme a imagem */
+            color: white; /* Deixa o texto do cabeçalho branco para dar contraste */
+            /* font-family: Aplica a fonte com serifa apenas no cabeçalho para 
+            ficar igual ao estilo "Times New Roman" do exercício. */
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        th, td {
+            border: 1px solid #000; /* Garante que todas as divisões internas tenham linha preta */
+            padding: 10px; /* Espaçamento interno para o conteúdo não "sufocar" nas bordas */
+            text-align: center; /* Alinha o conteúdo (texto e imagem) no centro horizontal */
+            /* vertical-align: middle: Alinha o conteúdo no centro vertical da célula. 
+            Isso faz com que o texto fique "na mesma altura" que o meio da imagem. */
+            vertical-align: middle; 
+        }
+
+        img {
+            width: 100px; /* Define uma largura fixa de 100px para todas as fotos */
+            height: auto; /* Mantém a proporção da altura automaticamente (não achata) */
+            display: block; /* Faz a imagem se comportar como um bloco */
+            margin: 0 auto; /* Centraliza a imagem caso a célula seja maior que 100px */
+        }
+
+        .text-left {
+            text-align: left; /* Sobrescreve o centro e alinha o texto à esquerda */
+            padding-left: 20px; /* Dá uma folga da borda esquerda para o texto não grudar */
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Modelo</th>
+                <th>Consumo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="clio.jpg" alt="Clio"></td>
+                <td class="text-left">Clio</td>
+                <td>15,8 km/l</td>
+            </tr>
+            <tr>
+                <td><img src="palio.jpg" alt="Palio Fire"></td>
+                <td class="text-left">Palio Fire</td>
+                <td>15,4 km/l</td>
+            </tr>
+            <tr>
+                <td><img src="novo uno.jpg" alt="Novo Uno"></td>
+                <td class="text-left">Novo Uno</td>
+                <td>15,2 km/l</td>
+            </tr>
+            <tr>
+                <td><img src="up.webp" alt="Up"></td>
+                <td class="text-left">Up</td>
+                <td>14,3 km/l</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
