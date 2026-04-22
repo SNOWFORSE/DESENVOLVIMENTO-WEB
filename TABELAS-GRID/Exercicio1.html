@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela com CSS Grid</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif; /* Define uma fonte limpa para a página */
+            display: flex; /* Usa Flexbox para o corpo da página */
+            justify-content: center; /* Centraliza a tabela horizontalmente na tela */
+            padding: 50px; /* Dá uma margem de respiro nas bordas da página */
+        }
+
+        .grid-table {
+            display: grid; /* Ativa o sistema de Grid neste elemento */
+            /* grid-template-columns: Define a estrutura das colunas.
+            Aqui, criamos exatamente duas colunas, cada uma com 150 pixels de largura. */
+            grid-template-columns: 150px 150px; 
+            border: 1px solid #000; /* Cria a moldura preta ao redor da tabela inteira */
+        }
+
+        .cell {
+            padding: 10px; /* Espaço entre o texto e as bordas da célula */
+            border: 0.5px solid #000; /* Cria as linhas finas que dividem as células (linhas internas) */
+            font-size: 1.2rem; /* Define um tamanho de letra confortável para leitura */
+            display: flex;/* Alinhamento Flex: Usado aqui dentro para garantir que o texto 
+            fique perfeitamente alinhado ao centro vertical da célula. */
+            align-items: center;
+        }
+
+        .header {
+            background-color: #6E6E6E; /* Cor de fundo cinza escuro */
+            color: white; /* Cor do texto branca para contraste */
+            font-weight: bold; /* Deixa o texto em negrito */
+            /* font-family: Aplica a fonte com serifa para imitar o estilo da imagem original. */
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .model {
+            background-color: #CCFFFF; /* Cor de fundo azul clara (Hexadecimal) */
+            color: #000; /* Texto na cor preta */
+        }
+
+        .consumption {
+            background-color: #98FF98; /* Cor de fundo verde clara (Hexadecimal) */
+            color: #000; /* Texto na cor preta */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-table">
+        <div class="cell header">Modelo</div>
+        <div class="cell header">Consumo</div>
+
+        <div class="cell model">Clio</div>
+        <div class="cell consumption">15,8 km/l</div>
+
+        <div class="cell model">Palio Fire</div>
+        <div class="cell consumption">15,4 km/l</div>
+
+        <div class="cell model">Novo Uno</div>
+        <div class="cell consumption">15,2 km/l</div>
+
+        <div class="cell model">Up</div>
+        <div class="cell consumption">14,3 km/l</div>
+    </div>
+
+</body>
+</html>
