@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Matrícula</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif; /* Define a fonte da página */
+            display: flex; /* Ativa o flexbox para alinhamento */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            padding: 40px; /* Espaçamento interno das bordas */
+            margin: 0; /* Remove as margens padrão */
+            background-color: #f5f5f5; /* Define a cor de fundo cinza claro */
+        }
+
+        .form-container {
+            background-color: white; /* Cor de fundo branca do formulário */
+            padding: 30px; /* Espaçamento interno do container */
+            border: 1px solid #ccc; /* Borda cinza clara ao redor */
+            display: grid; /* Ativa o sistema de grid */
+            grid-template-columns: 180px 450px; /* Define a largura das duas colunas */
+            gap: 15px 20px; /* Espaço entre as linhas e colunas */
+            align-items: start; /* Alinha os itens pelo topo */
+        }
+
+        label {
+            text-align: right; /* Alinha o texto das etiquetas à direita */
+            font-size: 1rem; /* Tamanho da fonte da etiqueta */
+            padding-top: 8px; /* Ajuste para alinhar com o topo do input */
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"], 
+        select, 
+        textarea {
+            width: 100%; /* Faz os campos ocuparem toda a largura da coluna */
+            padding: 10px; /* Espaçamento interno dos campos */
+            border: 1px solid #777; /* Cor da borda dos campos */
+            font-size: 1rem; /* Tamanho do texto nos campos */
+            box-sizing: border-box; /* Inclui borda e padding no cálculo da largura */
+        }
+
+        .inline-group {
+            display: flex; /* Coloca elementos de rádio/check em linha */
+            gap: 20px; /* Espaço entre os grupos internos */
+            padding-top: 8px; /* Alinhamento vertical com o rótulo */
+        }
+
+        .inline-group div {
+            display: flex; /* Alinha o input e o texto lado a lado */
+            align-items: center; /* Centraliza verticalmente o ícone e texto */
+            gap: 5px; /* Espaço entre a bolinha e o texto */
+        }
+
+        textarea {
+            height: 150px; /* Altura fixa para a caixa de texto */
+            resize: vertical; /* Permite redimensionar apenas na vertical */
+        }
+
+        .btn-container {
+            grid-column: 2; /* Posiciona o botão na segunda coluna do grid */
+            padding-top: 10px; /* Espaçamento acima do botão */
+        }
+
+        button {
+            padding: 10px 25px; /* Tamanho interno do botão */
+            font-size: 1rem; /* Tamanho do texto do botão */
+            cursor: pointer; /* Muda o cursor para mãozinha */
+            background-color: #efefef; /* Cor de fundo do botão */
+            border: 1px solid #777; /* Borda do botão */
+        }
+
+    </style>
+</head>
+<body>
+
+    <form class="form-container">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Nome">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="user@example.org">
+
+        <label for="pass">Password</label>
+        <input type="password" id="pass" placeholder="6 caracteres">
+
+        <label>Possui conhecimento?</label>
+        <div class="inline-group">
+            <div><input type="checkbox" id="js"> <label for="js">JavaScript</label></div>
+            <div><input type="checkbox" id="html"> <label for="html">HTML</label></div>
+            <div><input type="checkbox" id="css"> <label for="css">CSS</label></div>
+        </div>
+
+        <label for="curso">Curso</label>
+        <select id="curso">
+            <option disabled selected>--Selecione--</option>
+            <option value="ads">Análise e Desenvolvimento</option>
+            <option value="fisica">Física</option>
+            <option value="matematica">Matemática</option>
+        </select>
+
+        <label>Turno</label>
+        <div class="inline-group">
+            <div><input type="radio" name="turno" id="tarde"> <label for="tarde">Tarde</label></div>
+            <div><input type="radio" name="turno" id="noite"> <label for="noite">Noite</label></div>
+        </div>
+
+        <label for="motivo">Motivo matrícula</label>
+        <textarea id="motivo"></textarea>
+
+        <div class="btn-container">
+            <button type="submit">enviar</button>
+        </div>
+    </form>
+
+</body>
+</html>

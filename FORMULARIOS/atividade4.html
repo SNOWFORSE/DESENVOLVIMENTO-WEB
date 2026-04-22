@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Usuário - Final</title>
+    <style>
+body {
+            background-image: url('https://img.freepik.com/premium-photo/planet-earth-from-space-sunrise-3d-rendering_379823-2180.jpg'); /* Imagem da terra */
+            background-size: cover; /* Cobre a tela */
+            background-position: center; /* Centraliza fundo */
+            background-attachment: fixed; /* Fundo fixo */
+            font-family: 'Segoe UI', Tahoma, sans-serif; /* Fonte */
+            display: flex; /* Flexbox */
+            justify-content: center; /* Centraliza horiz. */
+            align-items: center; /* Centraliza vert. */
+            min-height: 100vh; /* Altura total */
+            margin: 0; /* Sem margem */
+        }
+
+        .cadastro-container {
+            background-color: rgba(6, 18, 31, 0.85); /* Fundo transparente */
+            padding: 30px 50px; /* Espaçamento interno */
+            border-radius: 5px; /* Cantos arredondados */
+            border: 1px solid #368d8d; /* Borda ciano */
+            width: 900px; /* Largura da caixa */
+            color: white; /* Texto branco */
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8); /* Sombra */
+        }
+
+        .meu-grid {
+            display: grid; /* Grid layout */
+            grid-template-columns: 120px auto; /* 2 colunas */
+            gap: 15px 20px; /* Espaço entre itens */
+            align-items: center; /* Alinha no centro */
+        }
+
+        label {
+            text-align: right; /* Texto à direita */
+            font-size: 1.2rem; /* Tamanho fonte */
+            color: #4ee2e2; /* Cor ciano */
+        }
+
+        input, select {
+            padding: 8px 12px; /* Espaço interno */
+            border: 2px solid #005a8d; /* Borda azul */
+            border-radius: 4px; /* Cantos input */
+            font-size: 1.1rem; /* Tamanho texto */
+            background-color: white; /* Fundo branco */
+            color: black; /* Texto preto */
+            outline: none; /* Sem borda de foco */
+        }
+
+        .linha-composta {
+            display: flex; /* Flex para linha única */
+            flex-direction: row; /* Itens lado a lado */
+            gap: 15px; /* Espaço entre campos */
+            align-items: center; /* Alinha vertical */
+            grid-column: 2; /* Coluna 2 do grid */
+        }
+
+        #idade { width: 80px; } /* Largura idade */
+        #ddd { width: 60px; } /* Largura DDD */
+        #tel { width: 200px; } /* Largura Telefone */
+
+        .btn-container {
+            grid-column: 2; /* Alinha botão na col 2 */
+            margin-top: 10px; /* Espaço topo */
+        }
+
+        button {
+            padding: 5px 25px; /* Tamanho botão */
+            font-size: 1rem; /* Fonte botão */
+            cursor: pointer; /* Cursor mãozinha */
+            background-color: white; /* Fundo botão */
+            border: 1px solid #999; /* Borda botão */
+            border-radius: 2px; /* Cantos botão */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cadastro-container">
+        <h2>Cadastro usuário</h2>
+
+        <form class="meu-grid">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" value="Felix Moraes Silveira">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" value="fms@test.org">
+
+            <label for="nasc">Nascimento</label>
+            <input type="date" id="nasc">
+
+            <label for="pais">Pais</label>
+            <select id="pais">
+                <option>Selecione</option>
+                <option selected>Brasil</option>
+            </select>
+
+            <label>Idade</label>
+            <div class="linha-composta">
+                <input type="text" id="idade">
+                
+                <label>DDD</label>
+                <input type="text" id="ddd" value="22">
+                
+                <label>Telefone</label>
+                <input type="text" id="tel">
+            </div>
+
+            <div class="btn-container">
+                <button type="button">Adicionar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

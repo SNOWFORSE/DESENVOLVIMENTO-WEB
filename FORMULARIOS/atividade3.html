@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário com Validação</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif; /* Define a fonte da página */
+        display: flex; /* Ativa o flexbox para alinhamento */
+        justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        padding: 40px; /* Espaçamento interno das bordas */
+        margin: 0; /* Remove as margens padrão */
+    }
+
+    .form-container {
+        display: grid; /* Ativa o sistema de grid */
+        grid-template-columns: 150px 350px; /* Define a largura das duas colunas */
+        gap: 15px 10px; /* Espaço entre as linhas e colunas */
+        align-items: center; /* Alinha os itens verticalmente ao centro */
+    }
+
+    label {
+        text-align: right; /* Alinha o texto das etiquetas à direita */
+        font-size: 1.1rem; /* Define o tamanho da fonte das etiquetas */
+    }
+
+    input {
+        width: 100%; /* Faz o input ocupar toda a largura da coluna */
+        padding: 8px; /* Espaçamento interno do campo */
+        border: 1px solid #777; /* Cor e espessura da borda */
+        font-size: 1rem; /* Tamanho do texto digitado */
+        box-sizing: border-box; /* Garante que o padding não aumente a largura */
+        outline: none; /* Remove o contorno azul ao clicar */
+    }
+
+    input:invalid {
+        color: red; /* Muda a cor do texto para vermelho se for inválido */
+    }
+
+    .btn-container {
+        grid-column: 2; /* Posiciona o botão na segunda coluna do grid */
+        margin-top: 10px; /* Espaçamento acima do botão */
+    }
+
+    button {
+        padding: 8px 20px; /* Tamanho interno do botão */
+        cursor: pointer; /* Muda o cursor para mãozinha ao passar o mouse */
+        background-color: #eee; /* Cor de fundo cinza claro */
+        border: 1px solid #777; /* Borda do botão */
+    }
+    </style>
+</head>
+<body>
+
+    <form class="form-container">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required minlength="3" placeholder="Nome">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="user@example.org">
+
+        <label for="pass">Password</label>
+        <input type="password" id="pass" required minlength="6" maxlength="10" placeholder="6 a 10 caracteres">
+
+        <div class="btn-container">
+            <button type="submit">enviar</button>
+        </div>
+    </form>
+
+</body>
+</html>
