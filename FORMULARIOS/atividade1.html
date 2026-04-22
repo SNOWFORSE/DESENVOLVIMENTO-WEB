@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário Grid</title>
+
+    <style>
+ 
+        body {
+            font-family: serif; /* Define uma fonte com serifa (como Times New Roman) */
+            display: flex; /* Usa Flexbox para centralizar o formulário na tela */
+            justify-content: center; /* Centraliza horizontalmente */
+            padding-top: 50px; /* Adiciona um espaçamento no topo da página */
+            margin: 0; /* Remove margens padrão do navegador */
+        }
+
+        .container-grid {
+            background-color: #c1fca4; /* Cor de fundo verde clara (conforme a imagem) */
+            padding: 30px; /* Espaçamento interno entre a borda e o conteúdo */
+            border: 1px solid #777; /* Borda fina cinza ao redor do formulário */
+            display: grid; /* Ativa o sistema de Grid */               
+            grid-template-columns: 200px auto; /* Define duas colunas: 
+            A primeira tem 200px (para os nomes) e a segunda se ajusta automaticamente */
+            gap: 15px 10px; /* Espaçamento entre as linhas (15px) e entre as colunas (10px) */
+            align-items: center; /* Alinha os itens verticalmente ao centro de cada linha do grid */
+        }
+
+        label {
+            text-align: right; /* Alinha o texto à direita para encostar nos inputs */
+            font-size: 1.1rem; /* Aumenta levemente o tamanho da fonte */
+            color: #003366; /* Define a cor azul escura para os nomes dos campos */
+        }
+
+        input[type="text"], select {
+            padding: 3px; /* Pequeno espaçamento interno para o texto não encostar na borda */
+            font-size: 1rem; /* Tamanho padrão de leitura */
+            width: fit-content; /* O campo cresce apenas o necessário para o conteúdo */
+            min-width: 150px; /* Garante uma largura mínima para os campos não ficarem muito pequenos */
+        }
+
+        .radio-group {
+            display: flex; /* Usa Flexbox para colocar rádio e texto lado a lado */
+            align-items: center; /* Alinha o círculo do rádio com o texto */
+            gap: 5px; /* Espaço entre o círculo e a palavra */
+        }
+
+        .radio-group label {
+            margin-right: 10px; /* Espaço entre a opção "Completo" e a próxima opção */
+            color: black; /* Sobrescreve o azul para preto nestas labels específicas */
+            text-align: left; /* Garante alinhamento à esquerda aqui */
+        }
+
+        .btn-container {
+            
+            grid-column: 1 / span 2; /* Faz este item ocupar as duas colunas do grid (da linha 1 até a 3) */      
+            margin-top: 10px; /* Espaço extra acima do botão */
+        }
+
+        button {
+            padding: 5px 15px; /* Espaçamento interno (respiro) do botão */
+            font-size: 1rem;
+            cursor: pointer; /* Transforma o mouse em "mãozinha" ao passar por cima */
+            background-color: #efefef; /* Cor de fundo cinza clara */
+            border: 1px solid #777; /* Borda cinza */
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Adiciona uma leve sombra para dar profundidade */
+        }
+    </style>
+</head>
+<body>
+
+    <form class="container-grid">
+        
+        <label for="nascimento">Data de nascimento:</label>
+        <input type="text" id="nascimento" placeholder="dd/mm/aaaa">
+
+        <label for="escolaridade">Escolaridade:</label>
+        <select id="escolaridade">
+            <option>Ensino Fundamental</option>
+            <option>Ensino Médio</option>
+            <option>Ensino Superior</option>
+        </select>
+
+        <label>Situação da Escolaridade:</label>
+        <div class="radio-group">
+            <input type="radio" name="situacao" id="completo"> <label for="completo">Completo</label>
+            <input type="radio" name="situacao" id="incompleto"> <label for="incompleto">Incompleto</label>
+        </div>
+
+        <label for="nacionalidade">Nacionalidade:</label>
+        <select id="nacionalidade">
+            <option>Brasil</option>
+            <option>Outra</option>
+        </select>
+
+        <label for="uf">UF onde nasceu:</label>
+        <select id="uf">
+            <option>Paraná</option>
+            <option>Santa Catarina</option>
+            <option>Rio Grande do Sul</option>
+        </select>
+
+        <div class="btn-container">
+            <button type="submit">enviar</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
