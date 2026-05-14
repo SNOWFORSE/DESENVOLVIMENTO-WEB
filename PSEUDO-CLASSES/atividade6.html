@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        ol{
+            list-style-type: none;
+        }
+
+        li::before {
+            content: "🟢";
+        }
+
+        h1::before, h2::before{
+            content: "👉";
+
+        }
+        
+        li{
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        h1{
+            font-weight: bold;
+        }
+
+        h2{
+            font-size: 32px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Conteúdo - parte 1</h1>
+
+    <ol>
+        <li> CSS </li>
+        <li> HTML </li>
+        <li> Javascript </li>
+    </ol>
+
+    <h2>Conteúdo - parte 2</h2>
+
+    <ol>
+        <li> Python </li>
+        <li> Banco de Dados </li>
+    </ol>
+</body>
+</html>
