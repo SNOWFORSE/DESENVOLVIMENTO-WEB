@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Linhas Pares</title>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        th {
+            color: darkblue;
+        }
+
+        /* Regra CSS para destacar as linhas PARES */
+        tbody tr:nth-child(even) {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Local</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>IFPR</td>
+                <td>Foz do Iguaçu</td>
+                <td>PR</td>
+                <td>Federal</td>
+            </tr>
+            <tr>
+                <td>UEL</td>
+                <td>Londrina</td>
+                <td>PR</td>
+                <td>Estadual</td>
+            </tr>
+            <tr>
+                <td>Unioeste</td>
+                <td>Cascavel</td>
+                <td>PR</td>
+                <td>Estadual</td>
+            </tr>
+            <tr>
+                <td>UTFPR</td>
+                <td>Medianeira</td>
+                <td>PR</td>
+                <td>Federal</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - Colunas Ímpares</title>
+    <style>
+        
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            color: darkblue;
+        }
+
+        /* Regra CSS para destacar as colunas ÍMPARES APENAS no corpo da tabela */
+        tbody tr td:nth-child(odd) {
+            background-color: lightgreen;
+        }
+
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Local</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>IFPR</td>
+                <td>Foz do Iguaçu</td>
+                <td>PR</td>
+                <td>Federal</td>
+            </tr>
+            <tr>
+                <td>UEL</td>
+                <td>Londrina</td>
+                <td>PR</td>
+                <td>Estadual</td>
+            </tr>
+            <tr>
+                <td>Unioeste</td>
+                <td>Cascavel</td>
+                <td>PR</td>
+                <td>Estadual</td>
+            </tr>
+            <tr>
+                <td>UTFPR</td>
+                <td>Medianeira</td>
+                <td>PR</td>
+                <td>Federal</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
