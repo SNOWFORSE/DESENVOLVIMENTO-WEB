@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+
+        function adicionaEventoInput() {
+            document.querySelector(".preco")
+            .addEventListener("input", (e) => calcularTotal())
+
+            document.querySelector(".qtd")
+            .addEventListener("input", (e) => calcularTotal())
+            
+        }
+
+
+        function adicionaEventoArray() {
+            document.querySelector(".preco")
+            .addEventListener("input", (e) => calcularTotal())
+
+            document.querySelector(".qtd")
+            .addEventListener("input", (e) => calcularTotal())
+            
+        }
+
+
+        window.onload = () => {
+            calcularTotal()
+            adicionaEventoInput()
+            adicionaEventoArray()
+            //document.querySelector(".preco")
+            //.addEventListener("input", (e) => calcularTotal())
+
+            //document.querySelector(".qtd")
+           // .addEventListener("input", (e) => calcularTotal())
+            
+        }
+
+            // seleciona 1 elemento
+           //console.log(document.querySelector(".preco"))
+
+            // seleciona varios elementos
+            //console.log(documento.querySelectorAll(".preco"))
+
+
+            //adicionar um evento input
+            //document.querySelector(".item")
+            //.forEach(
+                //el => el.addEventListener("input", (e) => calcularTotal())
+            //)
+    </script>
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: max-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <label> Preço </label>
+        <input
+         class="preco"
+         type="number" value="150"/>
+
+        <label>Quantidade</label>
+        <input
+         oninput="calcularTotal()"
+         class="qtd"
+         type="number" value="1"/>
+
+        <div class="total">R$0.00</div>
+    </div>
+
+        <div class="container">
+
+        <label> Preço </label>
+        <input
+         class="item"
+         type="number" value="150"/>
+
+        <label>Quantidade</label>
+        <input
+         oninput="calcularTotal()"
+         class="qtd"
+         type="number" value="1"/>
+
+        <div class="total">R$0.00</div>
+    </div>
+
+<script src="orçamento.js"></script>
+</body>
+</html>
