@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div style="display: flex; flex-direction: column; align-items: start;">    
+        <button onclick="proximo()">próximo</button>
+        <img id="photo" src=""/>
+        <pre id="source"></pre>
+    </div>
+
+    <script>
+
+        let dogs = [
+
+            "https://images.dog.ceo/breeds/pug/n02110958_10193.jpg", // dogs[0]
+            "https://images.dog.ceo/breeds/sheepdog-indian/Himalayan_Sheepdog.jpg", // dogs[1]
+            "https://images.dog.ceo/breeds/airedale/n02096051_8880.jpg", // dogs[2]
+            "https://images.dog.ceo/breeds/havanese/00100trPORTRAIT_00100_BURST20191030212452971_COVER.jpg", //dogs[3]
+
+        ]
+
+        // apocalipse: dogs[-1], dogs[4]
+    async function loadImage()   {     
+
+        const api = await fetch("https://dog.ceo/api/breeds/image/random");
+
+        const result = await api.json();
+
+        const image = result.message;
+        photo.src = image;
+        source.innerText = image;
+
+    }
+    //loadImage()
+
+    let indice = 0;
+    function proximo() {
+        // obtem a proxima imagem do array.
+        source.innerText = `indice: ${indice}`;
+        photo.src = dogs[indice];   
+        indice++; // <= verificar antes de incrementar. 
+
+    }
+
+    if (indice >= dogs.length) {
+        indice = 0;
+
+    }
+
+    function voltar() {
+        // obtem a imagem anterior 
+        indice = indice - 2;
+
+    if (indice < 0) {
+        indice = dogs.length -1;
+    }
+    photo.src = dogs[indice]; 
+    source.innerText = `indice: ${indice}`;
+
+    indice--;
+    }
+    proximo()
+    </script>
+</body>
+</html>
