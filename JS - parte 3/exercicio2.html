@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head>
+<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Calculadora de Conceito - Exercício 2</title> 
+    <style>
+        /* CSS para estilizar a calculadora */
+        * {
+            box-sizing: border-box; /* Faz com que as bordas e paddings não alterem o tamanho final definido dos elementos */
+            font-family: Arial, sans-serif; /* Define a fonte Arial ou qualquer sem-serifa como padrão do app */
+            margin: 0; /* Remove completamente as margens externas padrão de todos os elementos */
+            padding: 0; /* Remove completamente os preenchimentos internos padrão de todos os elementos */
+        }
+
+        body {
+            background-color: #f7f7f9; /* Aplica um fundo cinza bem claro e levemente azulado na página */
+            padding: 50px 20px; /* Adiciona espaçamento nas bordas da tela para desgrudar o container central */
+            display: flex; /* Ativa o modelo Flexbox para estruturação do layout do corpo */
+            justify-content: center; /* Centraliza o container da calculadora horizontalmente na janela do navegador */
+        }
+
+        .calc-container {
+            background: white; /* Configura a cor de fundo do container como branco puro */
+            border: 1px solid #ddd; /* Desenha uma borda cinza bem fina e sutil ao redor do card */
+            border-radius: 8px; /* Arredonda os quatro cantos do container em 8 pixels */
+            padding: 30px; /* Adiciona um recuo interno de 30 pixels para afastar o conteúdo das bordas */
+            width: 100%; /* Permite que o container se adapte a telas pequenas ocupando a largura total */
+            max-width: 500px; /* Limita o crescimento horizontal do container em no máximo 500 pixels */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06); /* Aplica uma sombra bem leve para dar efeito de relevo ao card */
+        }
+
+        h1 {
+            color: #000080; /* Define a cor do título principal como azul marinho escuro */
+            font-size: 36px; /* Configura um tamanho de fonte grande e chamativo para o título */
+            font-weight: bold; /* Aplica estilo negrito para dar peso visual ao título */
+            margin-bottom: 35px; /* Adiciona um espaço de 35 pixels abaixo do título */
+            text-align: center; /* Centraliza perfeitamente o texto do título dentro do container */
+        }
+
+        /* Grade para os campos de input */
+        .inputs-grid {
+            display: grid; /* Ativa o Grid Layout para organizar de forma tabular as caixas de texto */
+            grid-template-columns: repeat(3, 1fr); /* Divide o espaço da grade em 3 colunas idênticas */
+            gap: 25px; /* Adiciona um espaçamento de 25 pixels entre as colunas do grid */
+            margin-bottom: 30px; /* Cria um espaçamento abaixo do grid de notas isolando os resultados */
+        }
+
+        .input-box {
+            display: flex; /* Define o container interno de cada nota como Flexbox */
+            flex-direction: column; /* Alinha os elementos de forma vertical (label em cima, input embaixo) */
+            gap: 8px; /* Adiciona um espaço de 8 pixels entre o texto da label e a caixa de entrada */
+        }
+
+        .input-box label {
+            font-size: 20px; /* Define o tamanho da fonte do texto explicativo da nota */
+            color: #444; /* Aplica uma cor cinza escura para manter boa legibilidade no rótulo */
+        }
+
+        .input-box input {
+            font-size: 22px; /* Deixa o número digitado pelo usuário em tamanho grande e visível */
+            padding: 8px; /* Define um espaço interno na caixa para o texto não tocar nas bordas */
+            border: 1px solid #888; /* Cria uma borda cinza média sólida ao redor da caixa de digitação */
+            border-radius: 4px; /* Arredonda suavemente os cantos da caixa de input em 4 pixels */
+            width: 100%; /* Faz com que a caixa preencha toda a largura da coluna em que está inserida */
+            background-color: #fafafa; /* Define um fundo cinza extremamente claro dentro do campo */
+        }
+
+        /* Área de exibição dos resultados */
+        .results-area {
+            display: grid; /* Ativa o Grid Layout para organizar a exibição da média e do conceito */
+            grid-template-columns: 140px 1fr; /* Fixa a primeira coluna com 140px e deixa a segunda livre */
+            row-gap: 20px; /* Define um espaçamento vertical de 20 pixels entre as linhas de resultado */
+            font-size: 24px; /* Configura uma fonte grande para facilitar a leitura rápida do resultado */
+            margin-top: 20px; /* Cria uma margem superior para afastar os resultados da seção de inputs */
+            align-items: center; /* Alinha perfeitamente os textos das colunas na linha vertical central */
+        }
+
+        .label-text {
+            color: #333; /* Define uma cor cinza escura para os textos fixos de identificação */
+        }
+
+        .value-text {
+            font-weight: bold; /* Aplica negrito nos valores variáveis que serão inseridos pelo JS */
+        }
+
+        .value-text.final-grade {
+            color: #000080; /* Aplica a cor azul marinho escuro especificamente para a letra do conceito */
+            font-size: 28px; /* Aumenta ainda mais o tamanho da fonte do conceito para dar destaque visual */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-container"> <h1>Calculadora de conceito</h1> <div class="inputs-grid"> <div class="input-box"> <label for="grade1">Nota 1</label> <input type="number" id="grade1" min="0" max="10" step="0.1" value="10"> </div> <div class="input-box"> <label for="grade2">Nota 2</label> <input type="number" id="grade2" min="0" max="10" step="0.1" value="10"> </div> <div class="input-box"> <label for="grade3">Nota 3</label> <input type="number" id="grade3" min="0" max="10" step="0.1" value="6"> </div> </div> <div class="results-area"> <div class="label-text">Conceito</div> <div class="value-text final-grade" id="output-letter">-</div> <div class="label-text">Média</div> <div class="value-text" id="output-average">-</div> </div> </div> <script>
+        // JavaScript para cálculo em tempo real
+        const input1 = document.getElementById('grade1'); // Armazena a referência do input HTML correspondente à primeira nota
+        const input2 = document.getElementById('grade2'); // Armazena a referência do input HTML correspondente à segunda nota
+        const input3 = document.getElementById('grade3'); // Armazena a referência do input HTML correspondente à terceira nota
+        const outputAverage = document.getElementById('output-average'); // Armazena o elemento HTML onde será exibida a média final
+        const outputLetter = document.getElementById('output-letter'); // Armazena o elemento HTML onde será exibido o conceito final
+
+        // Função que realiza o cálculo baseada na tabela padrão
+        function performCalculation() { // Inicia a declaração da função principal responsável pelo processamento dinâmico
+            // Converte valores para número, garantindo intervalo de 0 a 10
+            const n1 = Math.min(10, Math.max(0, parseFloat(input1.value) || 0)); // Filtra a nota 1 impedindo valores fora de 0-10 e injeta 0 se vazio
+            const n2 = Math.min(10, Math.max(0, parseFloat(input2.value) || 0)); // Filtra a nota 2 impedindo valores fora de 0-10 e injeta 0 se vazio
+            const n3 = Math.min(10, Math.max(0, parseFloat(input3.value) || 0)); // Filtra a nota 3 impedindo valores fora de 0-10 e injeta 0 se vazio
+
+            // Média aritmética simples
+            const average = (n1 + n2 + n3) / 3; // Executa a soma aritmética das três notas filtradas e faz a divisão por 3
+            
+            // Lógica para definir a letra do conceito
+            let letter = 'D'; // Cria a variável de controle do conceito atribuindo o valor padrão 'D' por segurança
+            if (average >= 9.0) { // Cria uma condicional para verificar se o estudante obteve média igual ou maior que 9.0
+                letter = 'A'; // Altera a variável de controle para guardar o conceito máximo 'A'
+            } else if (average >= 7.5) { // Caso a média seja menor que 9.0, verifica se ela é igual ou maior que 7.5
+                letter = 'B'; // Altera a variável de controle para guardar o segundo maior conceito 'B'
+            } else if (average >= 6.0) { // Caso não atenda aos critérios anteriores, verifica se a média é igual ou maior que 6.0
+                letter = 'C'; // Altera a variável de controle para guardar o conceito intermediário 'C'
+            } // Caso nenhuma das validações acima seja positiva, o sistema mantém o valor padrão inicial 'D'
+
+            // Atualiza o DOM com formatação (2 casas decimais na média)
+            outputAverage.textContent = average.toFixed(2); // Injeta o resultado da média no elemento HTML travando a exibição em 2 casas decimais
+            outputLetter.textContent = letter; // Injeta o caractere final do conceito correspondente diretamente dentro do elemento HTML
+        } // Encerra o escopo interno da função de cálculo automático
+
+        // Adiciona listeners para recalcular automaticamente ao alterar qualquer nota
+        [input1, input2, input3].forEach(input => { // Cria um array com as referências dos inputs e inicia uma estrutura de repetição
+            input.addEventListener('input', performCalculation); // Define que a função de cálculo execute imediatamente a cada alteração no campo
+        }); // Encerra a vinculação em lote dos escutadores de eventos
+
+        // Executa uma vez no carregamento para mostrar os valores iniciais
+        performCalculation(); // Invoca manualmente a execução da função para inicializar o layout com os valores padrões do HTML (10, 10, 6)
+    </script> 
+</body> 
+</html>

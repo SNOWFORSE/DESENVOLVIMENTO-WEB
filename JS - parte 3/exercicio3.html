@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Tabela de Conceitos Dinâmica - Exercício 3</title> 
+    <style>
+        * {
+            box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura total */
+            font-family: Arial, sans-serif; /* Define a fonte padrão para toda a interface */
+            margin: 0; /* Zera as margens padrão do navegador */
+            padding: 0; /* Zera os espaçamentos internos padrão do navegador */
+        }
+
+        body {
+            background-color: #efefef; /* Define a cor de fundo cinza clara para a página */
+            padding: 40px 20px; /* Adiciona espaçamento nas bordas para afastar o card */
+            display: flex; /* Ativa o Flexbox para gerenciar o layout do corpo */
+            justify-content: center; /* Centraliza o card principal horizontalmente na tela */
+        }
+
+        .main-card {
+            background: white; /* Define o fundo do card como branco puro */
+            border: 1px solid #ccc; /* Cria uma borda cinza fina ao redor do card */
+            border-radius: 6px; /* Arredonda os cantos do card em 6 pixels */
+            padding: 30px; /* Adiciona um preenchimento interno confortável de 30 pixels */
+            width: 100%; /* Faz o card ocupar toda a largura disponível até o limite definido */
+            max-width: 580px; /* Define o limite máximo de largura do card em 580 pixels */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Adiciona uma sombra suave para dar profundidade */
+        }
+
+        .reference-table {
+            font-family: 'Courier New', Courier, monospace; /* Usa fonte monoespaçada para alinhar os caracteres */
+            font-size: 16px; /* Define o tamanho da fonte do texto da tabela */
+            line-height: 1.5; /* Define o espaçamento entre as linhas da tabela */
+            margin-bottom: 30px; /* Cria um espaçamento abaixo da tabela antes do título */
+            color: #000; /* Define a cor do texto como preto absoluto */
+        }
+
+        .active-row {
+            background-color: #ffff00; /* Define a cor de fundo amarela para a linha ativa do conceito */
+            display: inline-block; /* Altera o comportamento para o fundo amarelo cobrir apenas a linha */
+            padding-right: 80px; /* Estende a faixa amarela para o lado direito */
+        }
+
+        h1 {
+            color: #000080; /* Define a cor do título como azul marinho */
+            font-size: 34px; /* Define um tamanho de fonte grande e destacado para o título */
+            font-weight: bold; /* Deixa o texto do título em negrito */
+            margin-bottom: 35px; /* Adiciona espaçamento abaixo do título */
+            text-align: center; /* Alinha o texto do título no centro do card */
+        }
+
+        .calc-form-grid {
+            display: grid; /* Ativa o Grid Layout para organizar os campos de notas */
+            grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de tamanhos rigorosamente iguais */
+            gap: 20px; /* Define o espaçamento de 20 pixels entre as caixas de notas */
+            margin-bottom: 25px; /* Adiciona espaçamento abaixo do grupo de inputs */
+        }
+
+        .input-wrapper {
+            display: flex; /* Ativa o Flexbox para organizar o conteúdo interno */
+            flex-direction: column; /* Alinha o label acima da caixa de input verticalmente */
+            gap: 6px; /* Define um pequeno espaço de 6 pixels entre o label e o input */
+        }
+
+        .input-wrapper label {
+            font-size: 19px; /* Define o tamanho da fonte da legenda da nota */
+            color: #555; /* Define uma cor cinza escura para o texto do rótulo */
+        }
+
+        .input-wrapper input {
+            font-size: 21px; /* Define o tamanho da fonte do número digitado */
+            padding: 6px; /* Adiciona um espaço interno na caixa de digitação */
+            border: 1px solid #888; /* Define a borda cinza padrão para a caixa */
+            border-radius: 4px; /* Arredonda os cantos da caixa de input em 4 pixels */
+            width: 100%; /* Faz o input ocupar toda a largura da coluna do grid */
+        }
+
+        .results-display {
+            display: grid; /* Ativa o Grid Layout para a seção de exibição de dados */
+            grid-template-columns: 130px 1fr; /* Define duas colunas, a primeira com largura fixa de 130px */
+            row-gap: 15px; /* Define o espaçamento vertical entre as linhas de resultado */
+            font-size: 23px; /* Define um tamanho de fonte grande para os resultados */
+            margin-top: 15px; /* Adiciona um espaçamento acima do bloco de resultados */
+            align-items: center; /* Centraliza verticalmente os textos em cada linha */
+        }
+
+        .res-label {
+            color: #333; /* Define uma cor cinza escura para os rótulos textuais */
+        }
+
+        .res-value {
+            font-weight: bold; /* Define que todos os valores calculados apareçam em negrito */
+        }
+
+        .res-value.final-letter {
+            color: #000080; /* Aplica a cor azul marinho para a letra do conceito */
+            font-size: 26px; /* Aumenta o tamanho da fonte da letra do conceito para destaque */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card"> <div class="reference-table"> Intervalo de valores e conceito<br>
+            <span id="row-a">A &nbsp; 9.0 - 10</span><br> <span id="row-b">B &nbsp; 7.5 - 8.9</span><br> <span id="row-c">C &nbsp; 6.0 - 7.4</span><br> <span id="row-d">D &nbsp; 0 - 5.9</span> </div>
+
+        <h1>Calculadora de conceito</h1> <div class="calc-form-grid"> <div class="input-wrapper"> <label for="n1">Nota 1</label> <input type="number" id="n1" min="0" max="10" step="0.1" value="9"> </div>
+            <div class="input-wrapper"> <label for="n2">Nota 2</label> <input type="number" id="n2" min="0" max="10" step="0.1" value="10"> </div>
+            <div class="input-wrapper"> <label for="n3">Nota 3</label> <input type="number" id="n3" min="0" max="10" step="0.1" value="6"> </div>
+        </div>
+
+        <div class="results-display"> <div class="res-label">Conceito</div> <div class="res-value final-letter" id="letter-result">-</div> <div class="res-label">Média</div> <div class="res-value" id="average-result">-</div> </div>
+    </div>
+
+    <script>
+        const n1Input = document.getElementById('n1'); // Captura e armazena o elemento HTML correspondente à Nota 1
+        const n2Input = document.getElementById('n2'); // Captura e armazena o elemento HTML correspondente à Nota 2
+        const n3Input = document.getElementById('n3'); // Captura e armazena o elemento HTML correspondente à Nota 3
+        const averageResult = document.getElementById('average-result'); // Captura o elemento HTML que exibirá o resultado da média
+        const letterResult = document.getElementById('letter-result'); // Captura o elemento HTML que exibirá a letra do conceito
+        
+        const rows = {
+            'A': document.getElementById('row-a'), // Mapeia a letra 'A' ao elemento HTML do conceito A
+            'B': document.getElementById('row-b'), // Mapeia a letra 'B' ao elemento HTML do conceito B
+            'C': document.getElementById('row-c'), // Mapeia a letra 'C' ao elemento HTML do conceito C
+            'D': document.getElementById('row-d')  // Mapeia a letra 'D' ao elemento HTML do conceito D
+        };
+
+        function updateEverything() { // Inicia a função centralizada que recalcula e atualiza toda a página
+            const num1 = Math.min(10, Math.max(0, parseFloat(n1Input.value) || 0)); // Trata a nota 1 limitando entre 0 e 10 e trocando vazio por 0
+            const num2 = Math.min(10, Math.max(0, parseFloat(n2Input.value) || 0)); // Trata a nota 2 limitando entre 0 e 10 e trocando vazio por 0
+            const num3 = Math.min(10, Math.max(0, parseFloat(n3Input.value) || 0)); // Trata a nota 3 limitando entre 0 e 10 e trocando vazio por 0
+
+            const average = (num1 + num2 + num3) / 3; // Realiza a média aritmética somando as três notas e dividindo por 3
+            
+            let letter = 'D'; // Declara uma variável para o conceito iniciando com o valor padrão 'D'
+            if (average >= 9.0) {
+                letter = 'A'; // Atualiza o conceito para 'A' caso a média calculada seja maior ou igual a 9.0
+            } else if (average >= 7.5) {
+                letter = 'B'; // Atualiza o conceito para 'B' caso a média esteja entre 7.5 e 8.9
+            } else if (average >= 6.0) {
+                letter = 'C'; // Atualiza o conceito para 'C' caso a média esteja entre 6.0 e 7.4
+            }
+
+            averageResult.textContent = average.toFixed(2); // Altera o texto da média no HTML formatando para 2 casas decimais
+            letterResult.textContent = letter; // Altera o texto do conceito no HTML inserindo a respectiva letra obtida
+
+            Object.values(rows).forEach(row => row.classList.remove('active-row')); // Percorre todas as linhas da tabela removendo a classe de destaque amarela
+            
+            if (rows[letter]) {
+                rows[letter].classList.add('active-row'); // Adiciona a classe de destaque amarela na linha do conceito atual se ela existir
+            }
+        } // Encerra o bloco interno da função de atualização
+
+        [n1Input, n2Input, n3Input].forEach(input => {
+            input.addEventListener('input', updateEverything); // Associa o evento de digitação de cada caixa para disparar a função automaticamente
+        });
+
+        updateEverything(); // Executa de forma manual a função pela primeira vez para processar os valores iniciais na tela
+    </script>
+</body>
+</html>
