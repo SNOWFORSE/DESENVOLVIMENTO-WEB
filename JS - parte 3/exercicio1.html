@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+<head>
+<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Galeria de Cachorros</title> 
+    <style>
+        * {
+            box-sizing: border-box; /* Inclui margens internas e bordas no cálculo da largura e altura total de qualquer elemento */
+            font-family: Arial, sans-serif; /* Define a família tipográfica padrão que será herdada por toda a página */
+            margin: 0; /* Limpa e zera todas as margens externas padrão que vêm configuradas nos navegadores */
+            padding: 0; /* Limpa e zera todos os preenchimentos internos padrão de todas as tags do documento */
+        }
+
+        body {
+            background-color: #f4f4f9; /* Define uma cor de fundo cinza bem clara e levemente azulada para a página */
+            padding: 20px; /* Adiciona um recuo de segurança de 20 pixels nas bordas para o conteúdo não colar na tela */
+            display: flex; /* Ativa o modelo Flexbox no corpo para facilitar o alinhamento dos elementos filhos */
+            justify-content: center; /* Centraliza horizontalmente o bloco container da galeria na janela de visualização */
+        }
+
+        .section-container {
+            background: white; /* Define a cor de fundo do bloco principal da galeria como branco puro */
+            border: 1px solid #ccc; /* Cria uma linha de borda fina e cinza ao redor do painel da galeria */
+            border-radius: 4px; /* Arredonda de forma sutil os quatro cantos do painel principal em 4 pixels */
+            padding: 20px; /* Adiciona um espaço de preenchimento interno de 20 pixels para afastar o conteúdo da borda */
+            width: 100%; /* Faz com que o painel ocupe toda a largura disponível em dispositivos de tela menor */
+            max-width: 600px; /* Limita a expansão horizontal do painel em no máximo 600 pixels para telas grandes */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Aplica uma projeção de sombra bem leve e suave abaixo do painel principal */
+        }
+
+        h2 {
+            font-size: 28px; /* Configura o tamanho da fonte do título principal para um destaque visível */
+            margin-bottom: 10px; /* Adiciona um espaçamento de 10 pixels abaixo do título para desgrudar dos controles */
+            font-weight: bold; /* Define que o texto do título deve ser exibido com a propriedade de negrito */
+        }
+
+        .carousel-controls {
+            display: flex; /* Ativa o Flexbox para organizar os botões e elementos de controle na horizontal */
+            align-items: center; /* Centraliza perfeitamente os botões e caixas de seleção na linha vertical do bloco */
+            gap: 5px; /* Adiciona um espaço fixo de 5 pixels de separação entre cada botão de controle */
+            margin-bottom: 15px; /* Cria uma margem inferior de 15 pixels para afastar os controles da área da imagem */
+        }
+
+        .btn-nav {
+            background: #fff; /* Define o fundo interno dos botões de navegação com a cor branca pura */
+            border: 1px solid #767676; /* Cria uma borda sólida cinza padrão ao redor dos botões de setas */
+            border-radius: 3px; /* Aplica um leve arredondamento de 3 pixels nos cantos de cada botão de navegação */
+            padding: 2px 8px; /* Define um preenchimento interno compacto para dimensionar o formato do botão */
+            cursor: pointer; /* Modifica o ponteiro do mouse para o ícone de mãozinha indicando elemento clicável */
+            font-size: 14px; /* Determina o tamanho do caractere das setas textuais dentro do botão */
+        }
+
+        .btn-nav:hover {
+            background: #f0f0f0; /* Altera a cor de fundo do botão para um cinza suave quando o usuário passa o mouse */
+        }
+
+        .carousel-view {
+            border: 1px solid #aaa; /* Desenha uma borda cinza intermediária em volta do quadro que exibe a foto */
+            padding: 15px; /* Adiciona um preenchimento de 15 pixels criando uma moldura ao redor da foto e status */
+            background: #fff; /* Garante que o fundo da área de exibição da imagem seja mantido na cor branca */
+        }
+
+        .carousel-status {
+            font-size: 14px; /* Define um tamanho de fonte legível e discreto para o contador de posições */
+            margin-bottom: 10px; /* Cria um espaço de 10 pixels abaixo do status para não colar na imagem */
+            color: #333; /* Aplica uma tonalidade de cinza escuro para o texto indicador de posição */
+        }
+
+        .carousel-status a {
+            color: #0066cc; /* Define a cor azul padrão para o link de texto que exibe o nome da raça */
+            text-decoration: none; /* Remove aquela linha sublinhada padrão que costuma aparecer nos links HTML */
+        }
+
+        .carousel-image-container {
+            width: 100%; /* Define que o container da foto ocupe toda a largura do quadro delimitado */
+            height: 350px; /* Fixa a altura do bloco de exibição da imagem rigidamente em 350 pixels */
+            overflow: hidden; /* Oculta e corta qualquer pedaço da imagem que porventura tente ultrapassar os limites do container */
+            background: #eee; /* Aplica uma cor de fundo cinza neutra que aparece enquanto a imagem é carregada */
+            display: flex; /* Ativa o Flexbox para gerenciar o posicionamento da tag img interna */
+            justify-content: center; /* Alinha horizontalmente a imagem no centro do container caso haja sobras */
+            align-items: center; /* Alinha verticalmente a imagem no centro do bloco de exibição */
+        }
+
+        .carousel-image-container img {
+            width: 100%; /* Determina que a tag de imagem preencha completamente a largura total do container */
+            height: 100%; /* Determina que a tag de imagem preencha completamente a altura total do container */
+            object-fit: cover; /* Ajusta a imagem proporcionalmente para cobrir o espaço sem distorcer ou esticar os cachorros */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section-container"> <h2>Dogs</h2> <div class="carousel-controls"> <button class="btn-nav" id="btn-prev">←</button> <button class="btn-nav" id="btn-next">→</button> <input type="checkbox" disabled checked style="margin-left: 5px;"> </div> <div class="carousel-view"> <div class="carousel-status" id="carousel-status">#4/4 <a href="#">Beagle</a> ↗</div> <div class="carousel-image-container"> <img id="dog-img" src="" alt="Foto de cachorro"> </div> </div> </div> <script>
+        const dogsData = [ // Declara um array de objetos contendo a base de dados de nome e endereço das fotos dos cachorros
+            { name: "Golden Retriever", url: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=600" }, // Objeto de dados na posição 0 do array
+            { name: "Labrador", url: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600" }, // Objeto de dados na posição 1 do array
+            { name: "Poodle", url: "https://thumbs.dreamstime.com/b/c%C3%A3o-de-caniche-42882116.jpg" }, // Objeto de dados na posição 2 do array
+            { name: "Beagle", url: "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?auto=format&fit=crop&q=80&w=600" }  // Objeto de dados na posição 3 do array
+        ]; // Encerra a declaração da lista de dados dos animais
+
+        let currentDogIndex = 3; // Declara a variável de controle de índice iniciando em 3 para focar no Beagle de antemão
+
+        const dogImgElement = document.getElementById('dog-img'); // Captura e guarda a referência do elemento HTML da imagem para trocar o src depois
+        const statusElement = document.getElementById('carousel-status'); // Captura e guarda o elemento de texto do status para atualizar o contador e o nome
+        const btnPrev = document.getElementById('btn-prev'); // Captura e guarda a referência do botão da seta esquerda para vincular o clique
+        const btnNext = document.getElementById('btn-next'); // Captura e guarda a referência do botão da seta direita para vincular o clique
+
+        function updateCarousel() { // Define a função responsável por aplicar as mudanças de dados na tela do navegador
+            const currentDog = dogsData[currentDogIndex]; // Acessa e armazena o objeto de dados do cão correspondente ao índice numérico atual
+            dogImgElement.src = currentDog.url; // Atualiza o atributo src da imagem HTML com o link da foto do cachorro selecionado
+            statusElement.innerHTML = `#${currentDogIndex + 1}/${dogsData.length} <a href="#">${currentDog.name}</a> ↗`; // Injeta a string com os dados formatados no HTML do status
+        } // Finaliza a declaração da função de atualização visual
+
+        btnPrev.addEventListener('click', () => { // Vincula um escutador para capturar o evento de clique no botão da seta esquerda
+            currentDogIndex = (currentDogIndex === 0) ? dogsData.length - 1 : currentDogIndex - 1; // Decrementa o índice ou volta para o final se chegar ao início
+            updateCarousel(); // Invoca a função para renderizar a foto e os textos do cão anterior na tela
+        }); // Encerra a lógica do evento do botão anterior
+
+        btnNext.addEventListener('click', () => { // Vincula um escutador para capturar o evento de clique no botão da seta direita
+            currentDogIndex = (currentDogIndex === dogsData.length - 1) ? 0 : currentDogIndex + 1; // Incrementa o índice ou zera para reiniciar se chegar ao final da lista
+            updateCarousel(); // Invoca a função para renderizar a foto e os textos do próximo cão na tela
+        }); // Encerra a lógica do evento do botão próximo
+
+        updateCarousel(); // Executa manualmente a função de atualização para renderizar o Beagle no momento em que a página carregar
+    </script> 
+</body>
+</html>
